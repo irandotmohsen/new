@@ -1,9 +1,17 @@
 from django.db import models
 
-class Employees(models.Model):
-    first_name = models.CharField(max_length=300)
-    last_name = models.CharField(max_length=300)
-    emp_id = models.IntegerField()
+class Expense(models.Model):
+    text = models.CharField(max_length=300)
+    date = models.DateField()
+    amount = models.IntegerField()
 
     def __str__(self) -> str:
-        return self.first_name
+        return self.text
+
+class Income(models.Model):
+    text = models.CharField(max_length=300)
+    date = models.DateField()
+    amount = models.IntegerField()
+
+    def __str__(self) -> str:
+        return self.text

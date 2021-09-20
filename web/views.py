@@ -1,12 +1,21 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from .models import Employees
-from .serializers import employeesSerializers
+from .models import Expense, Income
+from .serializers import ExpensesSerializers, IncomesSerializers
 
-class emplyeeList(APIView):
+class ExpenseList(APIView):
     def get(self, request):
-        employees1 = Employees.objects.all()
-        serializer = employeesSerializers(employees1, many=True)
+        expenses = Expense.objects.all()
+        serializer = ExpensesSerializers(expenses, many=True)
+        return Response(serializer.data)
+    
+    def post(self):
+        pass
+
+class IncomeList(APIView):
+    def get(self, request):
+        incomes = Income.objects.all()
+        serializer = IncomesSerializers(incomes, many=True)
         return Response(serializer.data)
     
     def post(self):

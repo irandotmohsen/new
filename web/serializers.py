@@ -1,8 +1,13 @@
 from django.db.models import fields
 from rest_framework import serializers
-from .models import Employees
+from .models import Expense, Income
 
-class employeesSerializers(serializers.ModelSerializer):
+class ExpensesSerializers(serializers.ModelSerializer):
     class Meta:
-        model = Employees
-        fields = ('first_name', 'last_name')
+        model = Expense
+        fields = ('text', 'date', 'amount')
+
+class IncomesSerializers(serializers.ModelSerializer):
+    class Meta:
+        model = Income
+        fields = ('text', 'date', 'amount')
