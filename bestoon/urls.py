@@ -15,7 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from rest_framework.urlpatterns import forma, format_suffix_patformat_suffix_patterns
+from web import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('emploees/', views.emplyeeList.as_view()),
 ]
