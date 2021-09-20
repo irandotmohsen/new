@@ -1,8 +1,8 @@
 from django.db.models import fields
 from rest_framework import serializers
-from rest_framework import employees
+from .models import Employees
 
 class employeesSerializers(serializers.ModelSerializer):
     class Meta:
-        model = employees
+        model = Employees
         fields = ('first_name', 'last_name')
